@@ -1,0 +1,36 @@
+.container {
+    display: grid;  
+    width:1350px;
+    height:1350px;
+    margin:auto;
+    border: 2px solid black;
+    justify-content: space-around;       
+       
+  }
+.content{
+    padding: 10px;
+    border: 1px solid grey;
+  }
+
+.btncolor{
+    background-color: chocolate;
+    text-align: center;
+    color: black;
+    border-radius: 5px;
+  }   
+
+#buttons{
+    display: grid;
+    object-position: center;
+    margin: 50px 1000px;
+  }
+
+#black:hover{
+    background-color:sandybrown;
+    color:bisque;
+  }
+  
+#rainbow:hover{
+    background-color: sandybrown;
+    color:bisque;
+  }
