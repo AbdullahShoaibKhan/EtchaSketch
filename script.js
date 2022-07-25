@@ -2,24 +2,32 @@
     let content=document.querySelector('content');
     let black=document.querySelector('#black');
     let rainbow=document.querySelector('#rainbow');
+    let size=document.querySelector('#size');
     let div, allDivs;
-    size=prompt('enter number');
-    validate(size);
 
-    function validate(size){
-    size=parseInt(size);
-    if(size>10){
-        alert("Enter a Number Smaller than Or equal to 10")
+    //removes child elements and takes the new size entered
+    size.addEventListener('click',()=>{
+        container.replaceChildren();
         size=prompt('enter number');
-    }else{
-        boxs=Math.pow(size,2);
-        make(boxs);
-        newsize(size);
-    }
+        validate(size);
+    })
+
+    //checks if input is smaller or greater than 100
+    function validate(size){
+        size=parseInt(size);
+        if(size>100){
+            alert("Enter a Number Smaller than Or equal to 10")
+            size=prompt('enter number');
+        }else{
+            boxs=Math.pow(size,2);
+            make(boxs);
+            newsize(size);
+        }
     } 
     rainbow.addEventListener('click',mixclr)
     black.addEventListener('click',dark)
 
+    //takes the size entered and make child elements
     function make(boxs){
         for(i=0;i<boxs;i++){
             div = document.createElement('div'); 
@@ -27,6 +35,7 @@
             container.appendChild(div);         
             }
         }
+    //gives dark colour to boxes
     function dark(){
         allDivs=container.querySelectorAll('div');
         allDivs.forEach(element => {
@@ -38,6 +47,7 @@
                 });
             
         }
+    //gives rainbow colour to boxes
     function mixclr(){
         allDivs=container.querySelectorAll('div');
         allDivs.forEach(element => {
@@ -48,6 +58,7 @@
             e.target.style.backgroundColor=`rgb(${ranR},${ranG},${ranB})`;})    
         });  
         }
+    //makes the number of columns
     function newsize(size){
         container.style.gridTemplateColumns=`repeat(${size},1fr)`    
         }
